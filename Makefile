@@ -5,8 +5,8 @@ ps: # コンテイナーのリストを取得
 
 php: # phpコンテイナーにRoot権限でログイン
 	docker-compose exec laravel.test bash 
-mysql: # mysqlコンテイナーにログイン
-	./vendor/bin/sail mysql
+db: # mysqlコンテイナーにログイン
+	docker-compose exec mysql bash
 
 
 up: # コンテイナーを起動
