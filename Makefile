@@ -1,13 +1,17 @@
 
-php:
-	./vendor/bin/sail shell
-ps:
+ps: # コンテイナーのリストを取得
 	./vendor/bin/sail ps
-mysql:
+
+
+php: # phpコンテイナーにRoot権限でログイン
+	docker-compose exec laravel.test bash 
+mysql: # mysqlコンテイナーにログイン
 	./vendor/bin/sail mysql
-up:
+
+
+up: # コンテイナーを起動
 	./vendor/bin/sail up -d
-down:
+down: # コンテイナーを停止
 	./vendor/bin/sail down
-downv:
+downv: # volumeを削除 & コンテイナーを停止
 	./vendor/bin/sail down -v
