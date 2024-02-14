@@ -14,6 +14,21 @@ class registerUserReqeust extends FormRequest
         return true;
     }
 
+    public function messages(): array
+    {
+        return [
+            'name.required'         => '名前は必須です。',
+            'name.max'              => '名前は最大255文字まで入力してください。',
+            'email.required'        => 'メールアドレスは必須です。',
+            'email.email'           => 'メールアドレスの形式が正しくありません。',
+            'email.max'             => 'メールアドレスは最大255文字まで入力してください。',
+            'email.unique'          => 'すでに登録されているメールアドレスです。',
+            'password.required'     => 'パスワードは必須です。',
+            'password.confirmed'    => 'パスワードが一致していません。',
+            'password.min'          => 'パスワードは最小8文字から入力してください。'
+        ];
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
