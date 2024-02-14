@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\registerUserReqeust;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -14,14 +15,8 @@ class RegisterController extends Controller
         return view('regist.register');
     }
 
-    public function store(Request $req)
-    {
-        $req->validate([
-            'name'      => 'required|string|max:255',
-            'email'     => 'required|string|email|max:255|unique:users',
-            'password'  => 'required|string|confirmed|min:8'
-        ]);
-        
+    public function store(registerUserReqeust $req)
+    {   
         $user = User::create([
             'name'      => $req->name,
             'email'     => $req->email,
