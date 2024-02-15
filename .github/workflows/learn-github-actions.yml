@@ -3,15 +3,21 @@ run-name: ${{ github.actor }} is learning Github Actions
 on: [push]
 
 jobs:
-  # "my_first_job"というジョブIDでジョブを定義
-  my_first_job:
-    runs-on: ubuntu-latest
+  command:
+    name: Use Linux commands
+    runs-on: ubuntu-20.04
     steps:
-      - name: My first job
-        run: echo first
-  # "my_second_job"というジョブIDでジョブを定義
-  my_second_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: My second job
-        run: echo second
+      - name: Show ubuntu details
+        run: lsb_release -a
+      - name: Inspect files before checkout
+        run: ls -la
+      - name: show current directory before checkout
+        run: pwd
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Inspect files after checkout
+        run: ls -la
+      - name: show current directory after checkout
+        run: pwd
+      - name: show all branches after checkout
+        run: git branch -a
