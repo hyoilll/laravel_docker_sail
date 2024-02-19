@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->call(AuthorsTableSeeder::class);
+        // $this->call(AuthorsTableSeeder::class);
+
+        \App\Models\Publisher::factory(50)->create();
     }
 }
