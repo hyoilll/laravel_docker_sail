@@ -13,14 +13,26 @@ class AuthorsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 1; $i <= 10; $i++){
+        // for ($i = 1; $i <= 10; $i++){
+        //     $author = [
+        //         'name' => '著者名'. $i,
+        //         'kana' => 'チョシャメイ'. $i,
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ];
+
+        //     DB::table('authors')->insert($author);
+        // }
+
+        $faker = \Faker\Factory::create('ja_JP');
+        for ($i = 0; $i < 10; $i++){
             $author = [
-                'name' => '著者名'. $i,
-                'kana' => 'チョシャメイ'. $i,
+                'name' => $faker->name,
+                'kana' => $faker->kanaName,
                 'created_at' => now(),
                 'updated_at' => now(),
             ];
-            
+
             DB::table('authors')->insert($author);
         }
     }
